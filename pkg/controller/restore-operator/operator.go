@@ -90,7 +90,7 @@ func (r *Restore) Start(ctx context.Context) error {
 }
 
 func (r *Restore) initCRD(ctx context.Context) error {
-	err := k8sutil.CreateCRD(ctx, r.kubeExtCli, api.EtcdRestoreCRDName, api.EtcdRestoreResourceKind, api.EtcdRestoreResourcePlural, "")
+	err := k8sutil.CreateCRD(ctx, r.kubeExtCli, api.EtcdRestoreResourcePlural)
 	if err != nil {
 		return fmt.Errorf("failed to create CRD: %v", err)
 	}
